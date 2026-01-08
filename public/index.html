@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>File Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Folder Selection Screen -->
+    <div class="folder-selection" id="folderSelection">
+        <div class="selection-container">
+            <h1>📁 File Management System</h1>
+            <p class="subtitle">Pilih folder yang ingin dikelola</p>
+            
+            <div class="folder-cards">
+                <div class="folder-card" onclick="selectFolder('folderMaha')">
+                    <div class="folder-icon">📂</div>
+                    <h2>Folder Maha</h2>
+                    <p>Kelola file Maha</p>
+                    <button class="select-btn">Pilih Folder</button>
+                </div>
+                
+                <div class="folder-card" onclick="selectFolder('folderReva')">
+                    <div class="folder-icon">📂</div>
+                    <h2>Folder Reva</h2>
+                    <p>Kelola file Reva</p>
+                    <button class="select-btn">Pilih Folder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Screen -->
+    <div class="container" id="mainApp" style="display: none;">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>📁 <span id="currentFolderName">File Management System</span></h1>
+                    <p>Mengelola file dari <span id="currentFolderLabel"></span></p>
+                </div>
+                <button class="back-btn" onclick="backToSelection()">⬅️ Kembali ke Pilihan Folder</button>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Cari file..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn">🔍 Cari</button>
+            </div>
+
+            <div class="filter-box">
+                <label for="typeFilter">Filter berdasarkan jenis:</label>
+                <select id="typeFilter">
+                    <option value="">Semua Jenis</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-label">Total File di <span id="folderStatsName">Folder</span>:</span>
+                <span class="stat-value" id="totalFiles">0</span>
+            </div>
+        </div>
+
+        <div class="file-groups" id="fileGroups">
+            <div class="loading">Memuat file...</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
